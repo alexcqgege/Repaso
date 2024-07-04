@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EF202302Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Mecanico">
+    <Key>
+      <PropertyRef Name="MecanicoId" />
+    </Key>
+    <Property Name="MecanicoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoEmpleado" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NombreCompleto" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+    <Property Name="Eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Servicio">
+    <Key>
+      <PropertyRef Name="ServicioId" />
+    </Key>
+    <Property Name="ServicioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoServicio" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="FechaHoraServicio" Type="datetime" Nullable="false" />
+    <Property Name="Atendido" Type="bit" Nullable="false" />
+    <Property Name="MecanicoId" Type="int" Nullable="false" />
+    <Property Name="VehiculoId" Type="int" Nullable="false" />
+    <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vehiculo">
+    <Key>
+      <PropertyRef Name="VehiculoId" />
+    </Key>
+    <Property Name="VehiculoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Placa" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Marca" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Modelo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+    <Property Name="Eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="Servicio_Mecanico">
+    <End Role="Mecanico" Type="Self.Mecanico" Multiplicity="1" />
+    <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mecanico">
+        <PropertyRef Name="MecanicoId" />
+      </Principal>
+      <Dependent Role="Servicio">
+        <PropertyRef Name="MecanicoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Servicio_Vehiculo">
+    <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+    <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehiculo">
+        <PropertyRef Name="VehiculoId" />
+      </Principal>
+      <Dependent Role="Servicio">
+        <PropertyRef Name="VehiculoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EF202302ModelStoreContainer">
+    <EntitySet Name="Mecanico" EntityType="Self.Mecanico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Servicio_Mecanico" Association="Self.Servicio_Mecanico">
+      <End Role="Mecanico" EntitySet="Mecanico" />
+      <End Role="Servicio" EntitySet="Servicio" />
+    </AssociationSet>
+    <AssociationSet Name="Servicio_Vehiculo" Association="Self.Servicio_Vehiculo">
+      <End Role="Vehiculo" EntitySet="Vehiculo" />
+      <End Role="Servicio" EntitySet="Servicio" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
