@@ -1,0 +1,24 @@
+D:\Laboratorios\LabRepasoFinal\Datos\bin\Debug\Datos.dll.config
+D:\Laboratorios\LabRepasoFinal\Datos\bin\Debug\Datos.dll
+D:\Laboratorios\LabRepasoFinal\Datos\bin\Debug\Datos.pdb
+D:\Laboratorios\LabRepasoFinal\Datos\bin\Debug\EntityFramework.dll
+D:\Laboratorios\LabRepasoFinal\Datos\bin\Debug\EntityFramework.SqlServer.dll
+D:\Laboratorios\LabRepasoFinal\Datos\bin\Debug\EntityFramework.xml
+D:\Laboratorios\LabRepasoFinal\Datos\bin\Debug\EntityFramework.SqlServer.xml
+D:\Laboratorios\LabRepasoFinal\Datos\obj\Debug\Datos.csproj.AssemblyReference.cache
+D:\Laboratorios\LabRepasoFinal\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+D:\Laboratorios\LabRepasoFinal\Datos\obj\Debug\Datos.csproj.CopyComplete
+D:\Laboratorios\LabRepasoFinal\Datos\obj\Debug\Datos.dll
+D:\Laboratorios\LabRepasoFinal\Datos\obj\Debug\Datos.pdb
+D:\Laboratorios\LabRepasoFinal - Incompleto\Datos\bin\Debug\Datos.dll.config
+D:\Laboratorios\LabRepasoFinal - Incompleto\Datos\bin\Debug\Datos.dll
+D:\Laboratorios\LabRepasoFinal - Incompleto\Datos\bin\Debug\Datos.pdb
+D:\Laboratorios\LabRepasoFinal - Incompleto\Datos\bin\Debug\EntityFramework.dll
+D:\Laboratorios\LabRepasoFinal - Incompleto\Datos\bin\Debug\EntityFramework.SqlServer.dll
+D:\Laboratorios\LabRepasoFinal - Incompleto\Datos\bin\Debug\EntityFramework.xml
+D:\Laboratorios\LabRepasoFinal - Incompleto\Datos\bin\Debug\EntityFramework.SqlServer.xml
+D:\Laboratorios\LabRepasoFinal - Incompleto\Datos\obj\Debug\Datos.csproj.AssemblyReference.cache
+D:\Laboratorios\LabRepasoFinal - Incompleto\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+D:\Laboratorios\LabRepasoFinal - Incompleto\Datos\obj\Debug\Datos.csproj.CopyComplete
+D:\Laboratorios\LabRepasoFinal - Incompleto\Datos\obj\Debug\Datos.dll
+D:\Laboratorios\LabRepasoFinal - Incompleto\Datos\obj\Debug\Datos.pdb

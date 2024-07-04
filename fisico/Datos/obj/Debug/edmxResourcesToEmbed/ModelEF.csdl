@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EF202302Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BDEFEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Mecanico" EntityType="EF202302Model.Mecanico" />
+    <EntitySet Name="Servicio" EntityType="EF202302Model.Servicio" />
+    <EntitySet Name="Vehiculo" EntityType="EF202302Model.Vehiculo" />
+    <AssociationSet Name="Servicio_Mecanico" Association="EF202302Model.Servicio_Mecanico">
+      <End Role="Mecanico" EntitySet="Mecanico" />
+      <End Role="Servicio" EntitySet="Servicio" />
+    </AssociationSet>
+    <AssociationSet Name="Servicio_Vehiculo" Association="EF202302Model.Servicio_Vehiculo">
+      <End Role="Vehiculo" EntitySet="Vehiculo" />
+      <End Role="Servicio" EntitySet="Servicio" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Mecanico">
+    <Key>
+      <PropertyRef Name="MecanicoId" />
+    </Key>
+    <Property Name="MecanicoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoEmpleado" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="Eliminado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Servicio" Relationship="EF202302Model.Servicio_Mecanico" FromRole="Mecanico" ToRole="Servicio" />
+  </EntityType>
+  <EntityType Name="Servicio">
+    <Key>
+      <PropertyRef Name="ServicioId" />
+    </Key>
+    <Property Name="ServicioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoServicio" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FechaHoraServicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Atendido" Type="Boolean" Nullable="false" />
+    <Property Name="MecanicoId" Type="Int32" Nullable="false" />
+    <Property Name="VehiculoId" Type="Int32" Nullable="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Mecanico" Relationship="EF202302Model.Servicio_Mecanico" FromRole="Servicio" ToRole="Mecanico" />
+    <NavigationProperty Name="Vehiculo" Relationship="EF202302Model.Servicio_Vehiculo" FromRole="Servicio" ToRole="Vehiculo" />
+  </EntityType>
+  <EntityType Name="Vehiculo">
+    <Key>
+      <PropertyRef Name="VehiculoId" />
+    </Key>
+    <Property Name="VehiculoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Placa" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Marca" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Modelo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="Eliminado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Servicio" Relationship="EF202302Model.Servicio_Vehiculo" FromRole="Vehiculo" ToRole="Servicio" />
+  </EntityType>
+  <Association Name="Servicio_Mecanico">
+    <End Type="EF202302Model.Mecanico" Role="Mecanico" Multiplicity="1" />
+    <End Type="EF202302Model.Servicio" Role="Servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mecanico">
+        <PropertyRef Name="MecanicoId" />
+      </Principal>
+      <Dependent Role="Servicio">
+        <PropertyRef Name="MecanicoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Servicio_Vehiculo">
+    <End Type="EF202302Model.Vehiculo" Role="Vehiculo" Multiplicity="1" />
+    <End Type="EF202302Model.Servicio" Role="Servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehiculo">
+        <PropertyRef Name="VehiculoId" />
+      </Principal>
+      <Dependent Role="Servicio">
+        <PropertyRef Name="VehiculoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
